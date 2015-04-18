@@ -7,6 +7,9 @@
     <groupId>com.bbh</groupId>
     <artifactId>bbh</artifactId>
     <version>1.0</version>
+    <modules>
+        <module>bbh-shop</module>
+    </modules>
     <packaging>pom</packaging>
 
 </project>
