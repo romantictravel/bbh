@@ -8,11 +8,11 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>bbh-shop</artifactId>
+    <artifactId>bbh-rbac</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>bbh-shop-api</module>
-        <module>bbh-shop-provider</module>
+        <module>bbh-rabc-core</module>
+        <module>bbh-rabc-web</module>
     </modules>
 
 

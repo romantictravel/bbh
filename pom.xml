@@ -9,6 +9,7 @@
     <version>1.0</version>
     <modules>
         <module>bbh-shop</module>
+        <module>rbac</module>
     </modules>
     <packaging>pom</packaging>
 
