@@ -1,4 +1,4 @@
-package com.bbh;
+package com.bbh.application.config.base;
 
 /**
  * Hello world!
