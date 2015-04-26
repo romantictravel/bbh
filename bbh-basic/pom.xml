@@ -9,13 +9,12 @@
         <relativePath>../bbh-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>bbh-shop</artifactId>
+    <artifactId>bbh-basic</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>bbh-shop-api</module>
-        <module>bbh-shop-provider</module>
-        <module>bbh-shop-web</module>
-
+        <module>bbh-basic-api</module>
+        <module>bbh-basic-povider</module>
+        <module>bbh-basic-web</module>
     </modules>
 
 

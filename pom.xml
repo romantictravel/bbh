@@ -12,7 +12,8 @@
         <module>bbh-shiro</module>
         <module>bbh-parent</module>
         <module>bbh-rbac</module>
+        <module>bbh-basic</module>
+        <module>bbh-demo</module>
     </modules>
     <packaging>pom</packaging>
-
 </project>

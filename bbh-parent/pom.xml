@@ -13,15 +13,61 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <properties>
-        <dubbo.version>2.8.4</dubbo.version>
+
+        <druid.version>1.0.13</druid.version>
         <mybatis.version>3.2.7</mybatis.version>
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <shiro.version>1.2.3</shiro.version>
         <jsp.api.version>2.0</jsp.api.version>
-        <spring.boot.version>1.2.1.RELEASE</spring.boot.version>
+        <spring.version>4.0.5.RELEASE</spring.version>
         <!-- Plugin的属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.6</java.version>
+        <java.version>1.7</java.version>
+        <skip_maven_deploy>false</skip_maven_deploy>
+        <updateReleaseInfo>true</updateReleaseInfo>
+        <project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
+        <!-- for maven compiler plugin -->
+        <maven_compiler_plugin_version>2.3.2</maven_compiler_plugin_version>
+        <java_source_version>1.6</java_source_version>
+        <java_target_version>1.6</java_target_version>
+        <file_encoding>UTF-8</file_encoding>
+
+        <maven_source_plugin_version>2.1.1</maven_source_plugin_version>
+        <maven_jar_plugin_version>2.3.2</maven_jar_plugin_version>
+        <maven_war_plugin_version>2.1.1</maven_war_plugin_version>
+        <maven_install_plugin_version>2.3.1</maven_install_plugin_version>
+        <maven_deploy_plugin_version>2.7</maven_deploy_plugin_version>
+
+        <maven-surefire-plugin_version>2.17</maven-surefire-plugin_version>
+
+        <!--dubbo-->
+        <dubbo.version>2.8.4</dubbo.version>
+        <netty_version>3.7.0.Final</netty_version>
+        <mina_version>1.1.7</mina_version>
+        <grizzly_version>2.1.4</grizzly_version>
+        <hessian_lite_version>3.2.1-fixed-2</hessian_lite_version>
+        <xstream_version>1.4.1</xstream_version>
+        <fastjson_version>1.1.39</fastjson_version>
+        <bsf_version>3.1</bsf_version>
+        <sorcerer_version>0.8</sorcerer_version>
+        <zookeeper_version>3.4.6</zookeeper_version>
+        <zkclient_version>0.1</zkclient_version>
+        <curator_version>2.5.0</curator_version>
+        <jedis_version>2.1.0</jedis_version>
+        <xmemcached_version>1.3.6</xmemcached_version>
+        <cxf_version>2.6.1</cxf_version>
+        <thrift_version>0.8.0</thrift_version>
+        <jfreechart_version>1.0.13</jfreechart_version>
+        <hessian_version>4.0.7</hessian_version>
+        <validation_version>1.0.0.GA</validation_version>
+        <hibernate_validator_version>4.2.0.Final</hibernate_validator_version>
+        <jcache_version>0.4</jcache_version>
+        <sca_version>2.0-M5.1</sca_version>
+        <guice_version>3.0</guice_version>
+        <cglib_version>2.2</cglib_version>
+        <webx_version>3.0.8</webx_version>
+        <jackson_version>2.3.3</jackson_version>
+        <commons_pool_version>1.6</commons_pool_version>
     </properties>
     <dependencyManagement>
         <!--web begin-->
@@ -29,7 +75,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring-boot.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.springframework.boot</groupId>
@@ -68,7 +114,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-aop</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring-boot.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.springframework.boot</groupId>
@@ -81,7 +127,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring-boot.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.springframework.boot</groupId>
@@ -91,7 +137,7 @@
             </dependency>
             <!--jpa end-->
 
-            <!--mybatis begin-->
+            <!--database begin-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
@@ -102,7 +148,17 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis.spring.version}</version>
             </dependency>
-            <!--mybatis end-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--database end-->
             <!-- SECURITY begin -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
@@ -125,20 +181,172 @@
                 <version>${shiro.version}</version>
             </dependency>
             <!-- SECURITY end -->
+            <!--log begin-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.log4jdbc</groupId>
+                <artifactId>log4jdbc</artifactId>
+                <version>1.2</version>
+                <scope>runtime</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
                 <version>1.2.1.RELEASE</version>
             </dependency>
-
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
-                <version>99-not-empty</version>
+                <version>99.0-does-not-exist</version>
             </dependency>
+            <!--log end-->
+            <!--dubbo  相关-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty</artifactId>
+                <version>${netty_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${xstream_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.bsf</groupId>
+                <artifactId>bsf-api</artifactId>
+                <version>${bsf_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.caucho</groupId>
+                <artifactId>hessian</artifactId>
+                <version>${hessian_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate_validator_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>javax.cache</groupId>
+                <artifactId>cache-api</artifactId>
+                <version>${jcache_version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
-
+    <!-- repositories -->
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <!-- 插件配置 -->
     <build>
