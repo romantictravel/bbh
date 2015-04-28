@@ -103,29 +103,9 @@
         </dependency>
         <!--log end-->
     </dependencies>
+    <!--
     <build>
-        <finalName>xx</finalName>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <resources>
-            <!-- 控制资源文件的拷贝 -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <targetPath>${project.build.directory}</targetPath>
-            </resource>
-        </resources>
         <plugins>
-            <!-- 设置源文件编码方式 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <!--<defaultLibBundleDir>lib</defaultLibBundleDir>-->
-                    <source>${java_version}</source>
-                    <target>${java_version}</target>
-                    <encoding>${file_encoding}</encoding>
-                </configuration>
-            </plugin>
-            <!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -139,7 +119,6 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!-- 拷贝依赖的jar包到lib目录 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -151,41 +130,34 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>
-                                ${project.build.directory}/lib
-                            </outputDirectory>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <!-- 解决资源文件的编码问题 -->
+        </plugins>
+    </build>
+    -->
+    <build>
+        <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven_source_plugin_version}</version>
+                <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <encoding>${file_encoding}</encoding>
-                </configuration>
-            </plugin>
-            <!-- 打包source文件为jar文件 -->
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <attach>true</attach>
-                    <encoding>${file_encoding}</encoding>
+                    <descriptor>src/assembly/assembly.xml</descriptor>
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>jar</goal>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
+
 
 
 </project>

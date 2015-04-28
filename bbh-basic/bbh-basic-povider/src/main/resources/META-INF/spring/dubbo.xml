@@ -6,10 +6,10 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="bbh-basic-provider"  logger="slf4j"  owner="tc"/>
-    <!--
+
     <dubbo:registry address="zookeeper://192.168.1.190:2181"/>
-    -->
-    <dubbo:registry address="zookeeper://192.168.1.141:2182"/>
+
+    <!--<dubbo:registry address="zookeeper://192.168.1.141:2182"/> -->
 
     <dubbo:protocol  name="dubbo" port="20880" accesslog="true"/>
 
