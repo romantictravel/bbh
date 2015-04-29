@@ -7,12 +7,11 @@
     <artifactId>bbh</artifactId>
     <version>1.0</version>
     <modules>
-        <module>bbh-shop</module>
         <module>bbh-common</module>
         <module>bbh-shiro</module>
         <module>bbh-parent</module>
         <module>bbh-rbac</module>
-        <module>bbh-basic</module>
+        <module>bbh-shop</module>
         <module>bbh-demo</module>
     </modules>
     <packaging>pom</packaging>
