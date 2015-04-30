@@ -4,40 +4,37 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="D:/install/apache-maven-3.0.4/repo/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar"/>
+    <properties resource="mybatis/generator.properties"></properties>
+    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="${jdbc.driverLocation}"/>
     <context id="my" targetRuntime="MyBatis3" defaultModelType="conditional">
-
-
         <!--<plugin type="plugin.SelectByPagePlugin" />-->
-        <!-- 此处是将Example改名为Criteria 当然 想改成什么都行~ -->
         <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
             <property name="searchString" value="Example$" />
             <property name="replaceString" value="Criteria" />
         </plugin>
-       <!--
+       <!--清除所有注释,生成的注释是否带时间戳-->
         <commentGenerator>
-            <property name="suppressDate" value="false"/>
             <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="false"/>
         </commentGenerator>
-        -->
+
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                          connectionURL="jdbc:mysql://localhost:3306/kcshop?useUnicode=true"
-                          userId="root"
-                          password="root"/>
+                          connectionURL="${jdbc.url}"
+                          userId="${jdbc.user}"
+                          password="${jdbc.password}"/>
 
-        <javaModelGenerator targetPackage="com.bbh.shop.entity" targetProject="E:/git/m/bbh/bbh-demo/src/main/java">
+        <javaModelGenerator targetPackage="com.bbh.shop.entity" targetProject="MAVEN">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.bbh.shop.xml"    targetProject="E:/git/m/bbh/bbh-demo/src/main/java">
-            <property name="enableSubPackages" value="true"/>
+    <sqlMapGenerator targetPackage="com.bbh.shop.xml"    targetProject="MAVEN">
+        <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
 
-        </sqlMapGenerator>
-
-        <javaClientGenerator targetPackage="com.bbh.shop.povider.repository"
-                             targetProject="E:/git/m/bbh/bbh-demo/src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.bbh.shop.povider.repository" targetProject="MAVEN" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -52,8 +49,8 @@
                selectByExampleQueryId="false">
         </table>
         -->
-        <table tableName="tb_member" domainObjectName="Member1" >
-        </table>
+        <table tableName="tb_member" domainObjectName="Member" />
+
 
     </context>
 </generatorConfiguration>
