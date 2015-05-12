@@ -10,8 +10,9 @@
     <!--<dubbo:registry address="zookeeper://192.168.1.141:2182"/> -->
 
 
-    <bean id="userServiceImpl" class="com.bbh.shop.povider.service.UserServiceImpl" />
+    <bean id="manageImpl" class="com.bbh.shop.service.ManageImpl" />
 
-    <dubbo:service interface="com.bbh.shop.api.service.UserService" ref="userServiceImpl"/>
+
+    <dubbo:service interface="com.bbh.shop.service.ManageService" ref="manageImpl"/>
 
 </beans>

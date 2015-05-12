@@ -8,11 +8,11 @@
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry location="${jdbc.driverLocation}"/>
     <context id="my" targetRuntime="MyBatis3" defaultModelType="conditional">
-        <!--<plugin type="plugin.SelectByPagePlugin" />-->
         <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
             <property name="searchString" value="Example$" />
             <property name="replaceString" value="Criteria" />
         </plugin>
+
        <!--清除所有注释,生成的注释是否带时间戳-->
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
@@ -34,7 +34,7 @@
         <property name="enableSubPackages" value="true"/>
     </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.bbh.shop.povider.repository" targetProject="MAVEN" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.bbh.shop.repository" targetProject="MAVEN" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -49,7 +49,7 @@
                selectByExampleQueryId="false">
         </table>
         -->
-        <table tableName="tb_member" domainObjectName="Member" />
+        <table tableName="tb_manage" domainObjectName="Manage" />
 
 
     </context>

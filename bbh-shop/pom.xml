@@ -15,6 +15,7 @@
         <module>bbh-shop-api</module>
         <module>bbh-shop-povider</module>
         <module>bbh-shop-web</module>
+        <module>bbh-shop-manage</module>
     </modules>
 
 
