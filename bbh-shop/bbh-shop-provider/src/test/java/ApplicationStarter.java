@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-public class Starter {
+public class ApplicationStarter {
 
 	public static void main(String[] args) {
         com.alibaba.dubbo.container.Main.main(args);
