@@ -27,6 +27,11 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bbh</groupId>
+            <artifactId>bbh-common-utils</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 </project>

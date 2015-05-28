@@ -29,7 +29,7 @@
 	    <logger name="jdbc.sqltiming" level="INFO"/>
     -->
 	<!-- root  也是logger 元素-->
-	<root level="DEBUG">
+	<root level="INFO">
 		<appender-ref ref="console" />
 		<appender-ref ref="businessLogFile"/>
 	</root>
