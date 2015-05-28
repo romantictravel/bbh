@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>bbh-common-utils</module>
+        <module>bbh-common-config</module>
+        <module>bbh-common-constant</module>
     </modules>
 
 </project>

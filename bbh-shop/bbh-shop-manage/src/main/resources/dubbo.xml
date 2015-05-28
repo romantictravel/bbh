@@ -11,6 +11,6 @@
 
     <dubbo:protocol name="dubbo" port="-1" heartbeat="2000"/>
     <!-- 管理员信息-->
-    <dubbo:reference id="manageService" interface="com.bbh.shop.service.ManageService" check="false" timeout="10000"/>
+    <dubbo:reference id="manageService" interface="com.bbh.shop.api.service.ManageService" check="false" timeout="10000"/>
 
 </beans>

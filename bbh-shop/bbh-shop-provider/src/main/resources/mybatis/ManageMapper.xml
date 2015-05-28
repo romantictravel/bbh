@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.bbh.shop.repository.ManageMapper" >
+<mapper namespace="com.bbh.shop.provider.repository.ManageMapper" >
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -63,7 +63,7 @@
     id, create_date, modify_date, department, email, is_enabled, is_locked, locked_date, 
     login_date, login_failure_count, login_ip, name, password, username
   </sql>
-  <select id="selectByExample" resultMap="Manage" parameterType="com.bbh.shop.entity.ManageCriteria" >
+  <select id="selectByExample" resultMap="Manage" parameterType="com.bbh.shop.api.service.ManageCondition" >
     select
     <if test="distinct" >
       distinct
@@ -87,13 +87,13 @@
     delete from tb_manage
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.bbh.shop.entity.ManageCriteria" >
+  <delete id="deleteByExample" parameterType="com.bbh.shop.api.service.ManageCondition" >
     delete from tb_manage
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.bbh.shop.entity.Manage" >
+  <insert id="insert" parameterType="Manage" >
     insert into tb_manage (id, create_date, modify_date, 
       department, email, is_enabled, 
       is_locked, locked_date, login_date, 
@@ -105,7 +105,7 @@
       #{loginFailureCount,jdbcType=INTEGER}, #{loginIp,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.bbh.shop.entity.Manage" >
+  <insert id="insertSelective" parameterType="Manage" >
     insert into tb_manage
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -196,7 +196,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.bbh.shop.entity.ManageCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.bbh.shop.api.service.ManageCondition" resultType="java.lang.Integer" >
     select count(*) from tb_manage
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -272,7 +272,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bbh.shop.entity.Manage" >
+  <update id="updateByPrimaryKeySelective" parameterType="Manage" >
     update tb_manage
     <set >
       <if test="createDate != null" >
@@ -317,7 +317,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.bbh.shop.entity.Manage" >
+  <update id="updateByPrimaryKey" parameterType="Manage" >
     update tb_manage
     set create_date = #{createDate,jdbcType=TIMESTAMP},
       modify_date = #{modifyDate,jdbcType=TIMESTAMP},
