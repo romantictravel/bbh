@@ -13,7 +13,6 @@
  * limitations under the License.*/
 
 package com.bbh.shop.provider;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
