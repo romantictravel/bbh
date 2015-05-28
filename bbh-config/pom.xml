@@ -9,11 +9,14 @@
         <relativePath>../bbh-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>bbh-common</artifactId>
+    <artifactId>bbh-config</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>bbh-common-utils</module>
-        <module>bbh-common-constant</module>
+        <module>bbh-config-mybatis</module>
+        <module>bbh-config-datasource</module>
+        <module>bbh-config-shiro</module>
+        <module>bbh-config-mvc</module>
+        <module>bbh-config-ehcache</module>
+        <module>bbh-config-common</module>
     </modules>
-
 </project>

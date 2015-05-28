@@ -12,6 +12,7 @@
         <module>bbh-parent</module>
         <module>bbh-shop</module>
         <module>bbh-demo</module>
+        <module>bbh-config</module>
     </modules>
     <packaging>pom</packaging>
 </project>

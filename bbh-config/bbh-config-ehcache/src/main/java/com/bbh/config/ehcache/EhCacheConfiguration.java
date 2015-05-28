@@ -1,4 +1,4 @@
-package com.bbh.config.cache;
+package com.bbh.config.ehcache;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

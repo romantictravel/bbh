@@ -10,17 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>bbh-shop-provider</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>com.bbh</groupId>
-            <artifactId>bbh-shop-api</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.bbh</groupId>
-            <artifactId>bbh-common-config</artifactId>
-            <version>1.0</version>
-        </dependency>
-
+        <!--dubbo begin-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -35,49 +25,58 @@
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
         </dependency>
-
-        <!--spring jdbc-->
-        <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
-        <!--web-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
+        <!--dubbo end-->
+        <!--spring boot begin-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!--mybatis begin-->
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--database begin-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
+        <!--spring boot end-->
+        <!--mysql begin -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
+        <!--mysql end -->
         <!--log begin-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
         <!--log end-->
+        <!--bbh begin-->
+        <dependency>
+            <groupId>com.bbh</groupId>
+            <artifactId>bbh-shop-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bbh</groupId>
+            <artifactId>bbh-config-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bbh</groupId>
+            <artifactId>bbh-common-utils</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--bbh end-->
+        <!--test begin-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--test end-->
     </dependencies>
     <profiles>
         <profile>

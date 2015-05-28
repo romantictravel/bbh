@@ -5,26 +5,20 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.bbh.common.constant.ConstantsConfig;
-
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.sql.DataSource;
-
 import org.springframework.beans.BeansException;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
-import org.springframework.boot.context.embedded.ServletListenerRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.web.filter.CharacterEncodingFilter;
-
+import javax.sql.DataSource;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 @Configuration
-public class DataSourceConfiguration
-        implements ApplicationContextAware, ConstantsConfig {
+public class DataSourceConfiguration implements ApplicationContextAware, ConstantsConfig {
     private ApplicationContext applicationContext;
 
     @Bean(name = {"dataSource"}, destroyMethod = "close", initMethod = "init")
@@ -98,7 +92,7 @@ public class DataSourceConfiguration
 
         return filterRegistrationBean;
     }
-
+    /**
     @Bean(name = {"charsetEncodingFilter"})
     public FilterRegistrationBean charsetEncodingFilter() {
 
@@ -111,7 +105,7 @@ public class DataSourceConfiguration
         filterRegistrationBean.setFilter(characterEncodingFilter);
 
         return filterRegistrationBean;
-    }
+    }**/
 
     @Bean
     public ServletRegistrationBean druid() throws SQLException {
@@ -128,5 +122,6 @@ public class DataSourceConfiguration
 
         return this.applicationContext.getEnvironment();
     }
+
 }
 
