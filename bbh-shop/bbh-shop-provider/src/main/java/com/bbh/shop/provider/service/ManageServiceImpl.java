@@ -1,15 +1,16 @@
 package com.bbh.shop.provider.service;
 
 import com.bbh.shop.api.entity.Manage;
-import com.bbh.shop.api.service.ManageCondition;
 import com.bbh.shop.api.service.ManageService;
 import com.bbh.shop.provider.repository.ManageMapper;
+import com.bbh.shop.provider.service.condition.ManageCondition;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class ManageServiceImpl implements ManageService {
-   // @Autowired
+    @Autowired
     private ManageMapper manageMapper;
 
     public boolean usernameExists(String username) {
@@ -97,7 +98,7 @@ public class ManageServiceImpl implements ManageService {
     }
 
 
-    public void delete(ManageCondition condition) {
+    private void delete(ManageCondition condition) {
         manageMapper.deleteByExample(condition);
     }
 

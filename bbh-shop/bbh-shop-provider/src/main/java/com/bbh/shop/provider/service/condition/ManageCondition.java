@@ -1,4 +1,4 @@
-package com.bbh.shop.service;
+package com.bbh.shop.provider.service.condition;
 
 import java.util.ArrayList;
 import java.util.Date;

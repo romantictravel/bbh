@@ -1,7 +1,7 @@
 package com.bbh.shop.provider.repository;
 
 import com.bbh.shop.api.entity.Manage;
-import com.bbh.shop.api.service.ManageCondition;
+import com.bbh.shop.provider.service.condition.ManageCondition;
 import com.bbh.config.mybatis.MyBatisRepository;
 import org.apache.ibatis.annotations.Param;
 

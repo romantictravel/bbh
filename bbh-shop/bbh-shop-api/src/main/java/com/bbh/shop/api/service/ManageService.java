@@ -25,6 +25,4 @@ public interface ManageService {
 
     public void delete(Long... ids);
 
-
-    public void delete(ManageCondition condition);
 }

@@ -10,7 +10,6 @@
         <module>bbh-common</module>
         <module>bbh-shiro</module>
         <module>bbh-parent</module>
-        <module>bbh-rbac</module>
         <module>bbh-shop</module>
         <module>bbh-demo</module>
     </modules>
