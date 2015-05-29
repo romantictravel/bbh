@@ -1,8 +1,9 @@
-package com.bbh.config.ehcache;
+package com.bbh.common.cache;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnResource;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 import com.bbh.common.constant.ConstantsConfig;
 
 @Configuration
+@EnableCaching
 @ConditionalOnResource(resources = {"ehcache.xml"})
 public class EhCacheConfiguration implements ConstantsConfig {
 

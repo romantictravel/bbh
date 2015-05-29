@@ -3,18 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <artifactId>bbh-common</artifactId>
         <groupId>com.bbh</groupId>
-        <artifactId>bbh-parent</artifactId>
         <version>1.0</version>
-        <relativePath>../bbh-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>bbh-common</artifactId>
+
+    <artifactId>bbh-common-cache</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>bbh-common-utils</module>
-        <module>bbh-common-constant</module>
-        <module>bbh-common-cache</module>
+        <module>bbh-common-cache-redis</module>
+        <module>bbh-common-cache-ehcache</module>
     </modules>
-
 </project>

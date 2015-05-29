@@ -70,7 +70,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.bbh</groupId>
-			<artifactId>bbh-config-ehcache</artifactId>
+			<artifactId>bbh-common-cache-ehcache</artifactId>
 			<version>1.0</version>
 		</dependency>
         <!--bbh end-->
@@ -103,13 +103,13 @@
 				<!--<configuration>
 					<classifier>boot</classifier>
 				</configuration>-->
-				<!--<dependencies>
+				<dependencies>
 					<dependency>
 						<groupId>org.springframework</groupId>
 						<artifactId>springloaded</artifactId>
 						<version>1.2.1.RELEASE</version>
 					</dependency>
-				</dependencies>-->
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

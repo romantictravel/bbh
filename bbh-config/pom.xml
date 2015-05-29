@@ -16,7 +16,6 @@
         <module>bbh-config-datasource</module>
         <module>bbh-config-shiro</module>
         <module>bbh-config-mvc</module>
-        <module>bbh-config-ehcache</module>
         <module>bbh-config-common</module>
     </modules>
 </project>
