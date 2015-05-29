@@ -37,6 +37,21 @@ public class ApplicationManage extends SpringBootServletInitializer {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ApplicationManage.class, args);
+
+		/*ApplicationContext ctx = SpringApplication.run(Application.class, m);
+
+		System.out.println("Let's inspect the beans provided by Spring Boot:");
+
+		String[] beanNames = ctx.getBeanDefinitionNames();
+		Arrays.sort(beanNames);
+		for (String beanName : beanNames) {
+			System.out.println(beanName);
+		}*/
+
+
 	}
+
+
+
 
 }

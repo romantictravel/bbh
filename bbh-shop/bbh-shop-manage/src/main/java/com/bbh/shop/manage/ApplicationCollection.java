@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by roman_000 on 2015/5/28.
+ * 其他相关bean使用
+ * Created by tancheng on 2015/5/28.
  */
 @Configuration
-public class ApplicationConfiguration {
+public class ApplicationCollection {
     @Bean
     public DefaultManageableImageCaptchaService imageCaptchaService(){
         DefaultManageableImageCaptchaService   service=new DefaultManageableImageCaptchaService();
