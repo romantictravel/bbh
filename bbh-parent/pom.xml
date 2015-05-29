@@ -135,6 +135,16 @@
                 <artifactId>bcprov-jdk15</artifactId>
                 <version>${bcprov.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-aspectj</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-cas</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
             <!-- SECURITY end -->
             <!--cache being-->
             <dependency>
@@ -363,7 +373,7 @@
                 <artifactId>dom4j</artifactId>
                 <version>${dom4j.version}</version>
             </dependency>
-            <!--commons begin-->
+            <!--commons tools begin-->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -384,7 +394,13 @@
                 <artifactId>commons-beanutils</artifactId>
                 <version>1.9.2</version>
             </dependency>
-            <!--commons end-->
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>17.0</version>
+            </dependency>
+            <!--commons tools end-->
         </dependencies>
     </dependencyManagement>
     <!-- repositories -->
