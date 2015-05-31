@@ -22,6 +22,7 @@ import com.octo.captcha.component.image.wordtoimage.ComposedWordToImage;
 import com.octo.captcha.component.word.wordgenerator.RandomWordGenerator;
 import com.octo.captcha.engine.image.ListImageCaptchaEngine;
 import com.octo.captcha.image.gimpy.GimpyFactory;
+import org.springframework.util.ResourceUtils;
 
 /**
  * 验证码图片生成
@@ -53,7 +54,7 @@ public class CaptchaEngine extends ListImageCaptchaEngine {
 	private static final String CHAR_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	/** 随机背景图片路径 */
-	private static final String BACKGROUND_IMAGE_PATH = "/com/bbh/shop/manage/common/captcha/images/";
+	private static final String BACKGROUND_IMAGE_PATH = "/captcha";
 
 	/**
 	 * 随机字体
@@ -72,7 +73,8 @@ public class CaptchaEngine extends ListImageCaptchaEngine {
 	@Override
 	protected void buildInitialFactories() {
 		FontGenerator fontGenerator = new RandomFontGenerator(MIN_FONT_SIZE, MAX_FONT_SIZE, FONTS);
-		BackgroundGenerator backgroundGenerator = new FileReaderRandomBackgroundGenerator(IMAGE_WIDTH, IMAGE_HEIGHT, new ClassPathResource(BACKGROUND_IMAGE_PATH).getPath());
+		BackgroundGenerator backgroundGenerator = new FileReaderRandomBackgroundGenerator(IMAGE_WIDTH, IMAGE_HEIGHT,
+				 new ClassPathResource(BACKGROUND_IMAGE_PATH).getPath());
 		TextPaster textPaster = new DecoratedRandomTextPaster(MIN_WORD_LENGTH, MAX_WORD_LENGTH, new RandomListColorGenerator(COLORS), new TextDecorator[] {});
 		addFactory(new GimpyFactory(new RandomWordGenerator(CHAR_STRING), new ComposedWordToImage(fontGenerator, backgroundGenerator, textPaster)));
 	}

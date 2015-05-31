@@ -6,7 +6,7 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="bbh-shop-provider"  organization="bbh"/>
-    <dubbo:registry protocol="zookeeper"  address="${zookeeper.url}"  client="curator"/>
+    <dubbo:registry protocol="zookeeper"  address="${zookeeper.url}"/>
     <dubbo:protocol name="dubbo"  port="-1" />
 
 

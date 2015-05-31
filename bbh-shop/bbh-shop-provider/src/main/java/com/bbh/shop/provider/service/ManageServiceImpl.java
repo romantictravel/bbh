@@ -7,6 +7,7 @@ import com.bbh.shop.provider.service.condition.ManageCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ManageServiceImpl implements ManageService {
@@ -28,19 +29,20 @@ public class ManageServiceImpl implements ManageService {
         List<Manage> list=manageMapper.selectByExample(condition);
         return  null!=list&&list.size()>0?list.get(0):null;
     }
-    /**
-    public List<String> findAuthorities(Long id) {
+
+    public List<String> findAuthorities(String id) {
+
         List<String> authorities = new ArrayList<String>();
-        Manage manage = manageMapper.selectByPrimaryKey(id);
+       /* Manage manage = manageMapper.selectByPrimaryKey(id);
         if (manage != null) {
             for (Role role : manage.getRoles()) {
                 authorities.addAll(role.getAuthorities());
             }
-        }
+        }*/
         return authorities;
     }
 
-
+    /**
     public boolean isAuthenticated() {
         Subject subject = SecurityUtils.getSubject();
         if (subject != null) {
@@ -83,12 +85,14 @@ public class ManageServiceImpl implements ManageService {
         return  manageMapper.updateByPrimaryKeySelective(manage);
     }
 
-    public void delete(Long id) {
+
+
+    public void delete(String id) {
         manageMapper.deleteByPrimaryKey(id);
     }
 
 
-    public void delete(Long... ids) {
+    public void delete(String... ids) {
         if(ids!=null&&ids.length>0){
             for(int i=0;i<ids.length;i++){
                 manageMapper.deleteByPrimaryKey(ids[i]);

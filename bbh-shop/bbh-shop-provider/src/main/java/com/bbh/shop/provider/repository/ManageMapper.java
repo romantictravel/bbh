@@ -1,8 +1,9 @@
 package com.bbh.shop.provider.repository;
 
+
+import com.bbh.config.mybatis.MyBatisRepository;
 import com.bbh.shop.api.entity.Manage;
 import com.bbh.shop.provider.service.condition.ManageCondition;
-import com.bbh.config.mybatis.MyBatisRepository;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface ManageMapper {
 
     int deleteByExample(ManageCondition example);
 
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Manage record);
 
@@ -20,7 +21,7 @@ public interface ManageMapper {
 
     List<Manage> selectByExample(ManageCondition example);
 
-    Manage selectByPrimaryKey(Long id);
+    Manage selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") Manage record, @Param("example") ManageCondition example);
 

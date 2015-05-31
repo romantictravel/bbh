@@ -9,5 +9,20 @@
 
     <artifactId>bbh-config-mvc</artifactId>
     <packaging>jar</packaging>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.bbh</groupId>
+            <artifactId>bbh-common-constant</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bbh</groupId>
+            <artifactId>bbh-common-utils</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 </project>

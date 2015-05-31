@@ -8,7 +8,6 @@
     <version>1.0</version>
     <modules>
         <module>bbh-common</module>
-        <module>bbh-shiro</module>
         <module>bbh-parent</module>
         <module>bbh-shop</module>
         <module>bbh-demo</module>

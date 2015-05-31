@@ -23,6 +23,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -43,9 +44,13 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.apache.curator</groupId>
 			<artifactId>curator-framework</artifactId>
+		</dependency>-->
+		<dependency>
+			<groupId>com.github.sgroschupf</groupId>
+			<artifactId>zkclient</artifactId>
 		</dependency>
 		<!--bbh begin-->
 		<dependency>
@@ -63,17 +68,41 @@
 			<artifactId>bbh-config-mvc</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.bbh</groupId>
-			<artifactId>bbh-config-shiro</artifactId>
-			<version>1.0</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.bbh</groupId>
 			<artifactId>bbh-common-cache-ehcache</artifactId>
 			<version>1.0</version>
 		</dependency>
         <!--bbh end-->
+		<!-- SECURITY begin -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<!-- SECURITY end -->
+
+
 		<!--xml解析-->
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -103,13 +132,13 @@
 				<!--<configuration>
 					<classifier>boot</classifier>
 				</configuration>-->
-				<dependencies>
+				<!--<dependencies>
 					<dependency>
 						<groupId>org.springframework</groupId>
 						<artifactId>springloaded</artifactId>
 						<version>1.2.1.RELEASE</version>
 					</dependency>
-				</dependencies>
+				</dependencies>-->
 			</plugin>
 		</plugins>
 	</build>

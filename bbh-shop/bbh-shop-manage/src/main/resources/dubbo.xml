@@ -7,10 +7,10 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:application  name="bbh-shop-manage" owner="bbh"/>
 
-	<dubbo:registry protocol="zookeeper" address="192.168.1.141:2182" />
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
 
     <dubbo:protocol name="dubbo" port="-1" heartbeat="2000"/>
     <!-- 管理员信息-->
-    <dubbo:reference id="manageService" interface="com.bbh.shop.api.service.ManageService" check="false"/>
+    <dubbo:reference id="manageService" interface="com.bbh.shop.api.service.ManageService"   check="false"/>
 
 </beans>

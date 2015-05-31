@@ -15,13 +15,14 @@
 package com.bbh.shop.provider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude = {JacksonAutoConfiguration.class})
 @ComponentScan(basePackages = "com.bbh")
 @ImportResource({"classpath:dubbo.xml"})
 @EnableTransactionManagement(proxyTargetClass=true)

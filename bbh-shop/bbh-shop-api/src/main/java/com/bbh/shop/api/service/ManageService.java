@@ -2,6 +2,8 @@ package com.bbh.shop.api.service;
 
 import com.bbh.shop.api.entity.Manage;
 
+import java.util.List;
+
 /**
  * @author BBH TEAM
  * @Description
@@ -11,18 +13,24 @@ import com.bbh.shop.api.entity.Manage;
 public interface ManageService {
 
 
-    public boolean usernameExists(String username) ;
+     boolean usernameExists(String username) ;
 
-    public Manage findByUsername(String username);
+     Manage findByUsername(String username);
 
-    public void save(Manage manage);
+     void save(Manage manage);
 
+     int update(Manage manage);
 
-    public int update(Manage manage);
+     void delete(String id);
 
-    public void delete(Long id);
+     void delete(String... ids);
 
+    /**
+     * 查找权限集合
+     * @param id
+     * @return
+     */
+     List<String> findAuthorities(String id);
 
-    public void delete(Long... ids);
 
 }

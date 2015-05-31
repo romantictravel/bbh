@@ -8,9 +8,12 @@ public interface ConstantsConfig {
     String PROJECT_SYSTEM_PROPERTIES_NAME = "projectSystem.properties";
     String PROJECT_SYSTEM_PROPERTIES_LOCATION = "classpath*:projectSystem.properties";
     String PROJECT_CUSTOM_PROPERTIES_LOCATION_RULE = "classpath*:config/*.properties";
+    String SYSTEM_LOCALE="system.locale";
+    //mybatis
     String PROJECT_MYBATIS_TYPE_ALIASES_PACKAGE = "mybatis.config.typeAliasesPackage";
     String PROJECT_MYBATIS_SQL_TYPE = "mybatis.config.sqlType";
     String PROJECT_MYBATIS_BASE_PACKAGE = "mybatis.config.basePackage";
+    //druid
     String PROJECT_DRUID_DATASOURCE_USERNAME = "druid.datasource.username";
     String PROJECT_DRUID_DATASOURCE_URL = "druid.datasource.url";
     String PROJECT_DRUID_DATASOURCE_PASSWORD = "druid.datasource.password";
@@ -29,10 +32,18 @@ public interface ConstantsConfig {
     String PROJECT_DRUID_DATASOURCE_MAX_OPEN_PREPARED_STATEMENTS = "druid.datasource.maxOpenPreparedStatements";
     String PROJECT_DRUID_DATASOURCE_SLOW_SQL_MILLIS = "druid.datasource.slowSqlMillis";
     String PROJECT_DRUID_DATASOURCE_IS_LOG_SLOW_SQL = "druid.datasource.isLogSlowSql";
+
+    //http
     String HTTP_CLIENT_SOCKET_TIME_OUT = "http.client.socketTimeout";
     String HTTP_CLIENT_CONNECTION_REQUEST_TIME_OUT = "http.client.connectionRequestTimeout";
     String HTTP_CLIENT_CONNECTION_TIME_OUT = "http.client.connectionTimeout";
     String HTTP_CLIENT_CLOSE_IDLE_CONNECTIONS = "http.client.closeIdleConnections";
     String EHCACHE_FILE = "ehcache.file";
+    //mvc
+    String    MVC_MESSAGE_CACHE_SECONDS="mvc.message.cache_seconds";
+    String    MVC_MESSAGE_PATH="mvc.message.path";
+    String    MVC_VIEW_ERROR="mvc.view.error";
+    String    MVC_VIEW_PREFIX="mvc.view.prefix";
+    String    MVC_VIEW_SUFFIX="mvc.view.suffix";
 }
 
