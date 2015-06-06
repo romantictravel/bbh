@@ -14,7 +14,6 @@
     <modules>
         <module>bbh-common-utils</module>
         <module>bbh-common-constant</module>
-        <module>bbh-common-cache</module>
     </modules>
 
 </project>
