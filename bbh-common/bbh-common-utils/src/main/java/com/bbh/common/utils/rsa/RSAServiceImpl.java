@@ -3,9 +3,9 @@
 
 
  */
-package com.bbh.shop.manage.common.rsa;
+package com.bbh.common.utils.rsa;
+
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +20,6 @@ import java.security.interfaces.RSAPublicKey;
  * @author BBH Team
  * @version 1.0
  */
-@Component
 public class RSAServiceImpl implements RSAService {
 
 	/** "私钥"参数名称 */

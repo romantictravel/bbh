@@ -3,7 +3,7 @@
 
 
  */
-package com.bbh.shop.manage.common;
+package com.bbh.common.utils;
 
 import org.apache.commons.beanutils.converters.AbstractConverter;
 

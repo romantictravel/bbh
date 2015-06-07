@@ -3,8 +3,17 @@
 
 
  */
-package com.bbh.shop.manage.common;
+package com.bbh.common.utils.settings;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
+import java.util.List;
+
+import com.bbh.common.constant.CommonAttributes;
+import com.bbh.common.utils.EnumConverter;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import org.apache.commons.beanutils.BeanUtilsBean;
@@ -20,13 +29,6 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.springframework.core.io.ClassPathResource;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
-import java.util.List;
 
 /**
  * Utils - 系统设置
@@ -154,9 +156,9 @@ public final class SettingUtils {
 	 */
 	public static void set(Setting setting) {
 		try {
-			File kcshopXmlFile = new ClassPathResource(CommonAttributes.SETTING_XML_PATH).getFile();
-			Document document = new SAXReader().read(kcshopXmlFile);
-			List<Element> elements = document.selectNodes("/kcshop/setting");
+			File xmlFile = new ClassPathResource(CommonAttributes.SETTING_XML_PATH).getFile();
+			Document document = new SAXReader().read(xmlFile);
+			List<Element> elements = document.selectNodes("/bbh/setting");
 			for (Element element : elements) {
 				try {
 					String name = element.attributeValue("name");
@@ -180,7 +182,7 @@ public final class SettingUtils {
 				outputFormat.setIndent(true);
 				outputFormat.setIndent("	");
 				outputFormat.setNewlines(true);
-				fileOutputStream = new FileOutputStream(kcshopXmlFile);
+				fileOutputStream = new FileOutputStream(xmlFile);
 				xmlWriter = new XMLWriter(fileOutputStream, outputFormat);
 				xmlWriter.write(document);
 			} catch (Exception e) {

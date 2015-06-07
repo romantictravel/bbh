@@ -3,9 +3,10 @@
 
 
  */
-package com.bbh.shop.manage.common.captcha;
+package com.bbh.common.utils.captcha.service;
 
-import com.bbh.shop.manage.common.Setting;
+
+import com.bbh.common.utils.settings.Setting;
 
 import java.awt.image.BufferedImage;
 

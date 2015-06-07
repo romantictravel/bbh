@@ -3,21 +3,14 @@
 
 
  */
-package com.bbh.shop.manage.common.rsa;
-
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.Provider;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-
-import javax.crypto.Cipher;
+package com.bbh.common.utils.rsa;
 
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.springframework.util.Assert;
+
+import javax.crypto.Cipher;
+import java.security.*;
 
 /**
  * Utils - RSA加密解密

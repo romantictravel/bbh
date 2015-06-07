@@ -3,12 +3,7 @@
 
 
  */
-package com.bbh.shop.manage.common.captcha;
-
-import java.awt.Color;
-import java.awt.Font;
-
-import org.springframework.core.io.ClassPathResource;
+package com.bbh.common.utils.captcha.engine;
 
 import com.octo.captcha.component.image.backgroundgenerator.BackgroundGenerator;
 import com.octo.captcha.component.image.backgroundgenerator.FileReaderRandomBackgroundGenerator;
@@ -22,7 +17,9 @@ import com.octo.captcha.component.image.wordtoimage.ComposedWordToImage;
 import com.octo.captcha.component.word.wordgenerator.RandomWordGenerator;
 import com.octo.captcha.engine.image.ListImageCaptchaEngine;
 import com.octo.captcha.image.gimpy.GimpyFactory;
-import org.springframework.util.ResourceUtils;
+import org.springframework.core.io.ClassPathResource;
+
+import java.awt.*;
 
 /**
  * 验证码图片生成

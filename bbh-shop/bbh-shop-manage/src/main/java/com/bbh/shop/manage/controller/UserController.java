@@ -1,6 +1,6 @@
 package com.bbh.shop.manage.controller;
 
-import com.bbh.shop.manage.common.captcha.CaptchaService;
+import com.bbh.common.utils.captcha.service.CaptchaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller("/user")
 public class UserController {
 
-    @Autowired
+    //@Autowired
     private CaptchaService captchaService;
     @RequestMapping("/list")
     public void  list(){

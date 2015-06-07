@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>bbh-shop-manage</artifactId>
 	<groupId>com.bbh</groupId>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<dependencies>
 		<!--spring boot begin-->
 		<dependency>
@@ -20,21 +20,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
-
+        <!--servlet 支持-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-		</dependency>
-
+        <!--日志-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
@@ -49,10 +46,6 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 		</dependency>
-		<!--<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-framework</artifactId>
-		</dependency>-->
 		<dependency>
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
@@ -61,62 +54,28 @@
 		<dependency>
 			<groupId>com.bbh</groupId>
 			<artifactId>bbh-shop-api</artifactId>
-			<version>1.0</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.bbh</groupId>
 			<artifactId>bbh-common-utils</artifactId>
-			<version>1.0</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.bbh</groupId>
 			<artifactId>bbh-config-mvc</artifactId>
-			<version>1.0</version>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bbh</groupId>
+			<artifactId>bbh-config-shiro</artifactId>
+			<version>${project.version}</version>
 		</dependency>
         <!--bbh end-->
-		<!-- SECURITY begin -->
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-ehcache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk15</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-		</dependency>
-		<!-- SECURITY end -->
-
 		<!--ehcache 缓存-->
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
-		</dependency>
-
-		<!--xml解析-->
-		<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>${dom4j.version}</version>
-		</dependency>
-		<!--xml end-->
-		<dependency>
-		   <groupId>com.octo.captcha</groupId>
-		   <artifactId>jcaptcha-all</artifactId>
 		</dependency>
         <!--test begin-->
 		<dependency>

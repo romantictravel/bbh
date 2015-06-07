@@ -3,11 +3,10 @@
 
 
  */
-package com.bbh.shop.manage.common.rsa;
-
-import java.security.interfaces.RSAPublicKey;
+package com.bbh.common.utils.rsa;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.interfaces.RSAPublicKey;
 
 /**
  * Service - RSA安全

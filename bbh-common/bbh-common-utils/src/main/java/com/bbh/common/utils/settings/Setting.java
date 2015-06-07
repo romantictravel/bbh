@@ -3,19 +3,19 @@
 
 
  */
-package com.bbh.shop.manage.common;
+package com.bbh.common.utils.settings;
 
-import org.apache.commons.lang3.StringUtils;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.math.BigDecimal;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 系统设置
@@ -78,7 +78,7 @@ public class Setting implements Serializable {
 		memberRegister,
 
 		/** 后台登录 */
-		manageLogin,
+		accountLogin,
 
 		/** 商品评论 */
 		review,
@@ -105,7 +105,7 @@ public class Setting implements Serializable {
 		member,
 
 		/** 管理员 */
-		manage
+		account
 	}
 
 	/**

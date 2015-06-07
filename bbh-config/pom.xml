@@ -16,12 +16,6 @@
         <module>bbh-config-datasource</module>
         <module>bbh-config-mvc</module>
         <module>bbh-config-common</module>
+        <module>bbh-config-shiro</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-    </dependencies>
 </project>
