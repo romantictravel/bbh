@@ -1,56 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration
-        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+        <!DOCTYPE generatorConfiguration
+                PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+                "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="mybatis/generator.properties"></properties>
-    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+<properties resource="mybatis/generator.properties"/>
     <classPathEntry location="${jdbc.driverLocation}"/>
-    <context id="my" targetRuntime="MyBatis3" defaultModelType="conditional">
-        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
-            <property name="searchString" value="Example$" />
-            <property name="replaceString" value="Condition" />
-        </plugin>
+<context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
 
-       <!--清除所有注释,生成的注释是否带时间戳-->
-        <commentGenerator>
-            <property name="suppressAllComments" value="true"/>
-            <property name="suppressDate" value="false"/>
-        </commentGenerator>
+    <plugin type="${mapper.plugin}">
+        <property name="mappers" value="${mapper.Mapper}"/>
+    </plugin>
 
+    <jdbcConnection driverClass="${jdbc.driverClass}"
+                    connectionURL="${jdbc.url}"
+                    userId="${jdbc.user}"
+                    password="${jdbc.password}">
+    </jdbcConnection>
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                          connectionURL="${jdbc.url}"
-                          userId="${jdbc.user}"
-                          password="${jdbc.password}"/>
+    <javaModelGenerator targetPackage="${targetModelPackage}" targetProject="MAVEN"/>
 
-        <javaModelGenerator targetPackage="com.bbh.shop.api.entity" targetProject="MAVEN">
-            <property name="enableSubPackages" value="true"/>
-            <property name="trimStrings" value="true"/>
-        </javaModelGenerator>
+    <sqlMapGenerator targetPackage="${targetXMLPackage}"  targetProject="MAVEN"/>
 
-    <sqlMapGenerator targetPackage="com.bbh.shop.xml"    targetProject="MAVEN">
-        <property name="enableSubPackages" value="true"/>
-    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="${targetMapperPackage}"  targetProject="MAVEN"  type="XMLMAPPER" />
 
-        <javaClientGenerator targetPackage="com.bbh.shop.provider.repository" targetProject="MAVEN" type="XMLMAPPER">
-            <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator>
-
-        <!--<table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false"/>-->
-       <!--
-        <table tableName="tb_member" domainObjectName="Member"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-        -->
-        <table tableName="tb_manage" domainObjectName="Manage" />
-
-
-    </context>
+    <table tableName="%" >
+        <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+</context>
 </generatorConfiguration>

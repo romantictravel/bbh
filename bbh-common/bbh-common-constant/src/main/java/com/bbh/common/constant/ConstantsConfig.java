@@ -40,10 +40,10 @@ public interface ConstantsConfig {
     String HTTP_CLIENT_CLOSE_IDLE_CONNECTIONS = "http.client.closeIdleConnections";
     String EHCACHE_FILE = "ehcache.file";
     //mvc
-    String    MVC_MESSAGE_CACHE_SECONDS="mvc.message.cache_seconds";
-    String    MVC_MESSAGE_PATH="mvc.message.path";
-    String    MVC_VIEW_ERROR="mvc.view.error";
-    String    MVC_VIEW_PREFIX="mvc.view.prefix";
-    String    MVC_VIEW_SUFFIX="mvc.view.suffix";
+    String    MVC_MESSAGE_CACHE_SECONDS="cacheSeconds";
+    String    MVC_MESSAGE_PATH="path";
+    String    MVC_VIEW_ERROR="error";
+    String    MVC_VIEW_PREFIX="prefix";
+    String    MVC_VIEW_SUFFIX="suffix";
 }
 

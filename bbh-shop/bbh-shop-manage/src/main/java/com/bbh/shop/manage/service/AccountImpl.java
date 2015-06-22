@@ -2,7 +2,7 @@ package com.bbh.shop.manage.service;
 
 import com.bbh.config.shiro.entity.Account;
 import com.bbh.config.shiro.service.AccountService;
-import com.bbh.shop.api.service.ManageService;
+import com.bbh.shop.api.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class AccountImpl implements AccountService {
     @Autowired
-    private ManageService manageService;
+    private AdminService manageService;
     @Override
     public Account findByUsername(String username) {
         return null;

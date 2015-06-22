@@ -1,6 +1,7 @@
 package com.bbh.config.mybatis;
 
 import com.bbh.common.constant.ConstantsConfig;
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
@@ -15,6 +16,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import tk.mybatis.mapper.mapperhelper.MapperHelper;
+import tk.mybatis.mapper.mapperhelper.MapperInterceptor;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -37,7 +40,7 @@ public class MybatisConfiguration
     }
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactory() throws SQLException, IOException {
+    public SqlSessionFactoryBean sqlSessionFactory( PageHelper  pageHelper,MapperInterceptor mapperInterceptor) throws SQLException, IOException {
         LOGGER.info("init sqlSessionFactory");
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(getDataSource());
@@ -46,12 +49,32 @@ public class MybatisConfiguration
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource[] resources=resolver.getResources("classpath:"+this.applicationContext.getEnvironment().getProperty("mybatis.config.mapperLocations"));
         sqlSessionFactoryBean.setMapperLocations(resources);
-
-        Properties properties = new Properties();
+        //plugins
+       /* Properties properties = new Properties();
         properties.setProperty("sqlType", this.applicationContext.getEnvironment().getProperty("mybatis.config.sqlType"));
-        sqlSessionFactoryBean.setConfigurationProperties(properties);
-        sqlSessionFactoryBean.setPlugins(new Interceptor[]{new PaginationInterceptor()});
+        sqlSessionFactoryBean.setConfigurationProperties(properties);*/
+
+        sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper,mapperInterceptor});
         return sqlSessionFactoryBean;
+    }
+    @Bean
+    public  PageHelper  pageHelper(){
+        PageHelper page=new PageHelper();
+        Properties properties=new Properties();
+        properties.put("dialect", "mysql");
+        properties.put("reasonable",true);
+        page.setProperties(properties);
+        return page;
+    }
+    @Bean
+    public  MapperInterceptor mapperInterceptor(){
+        MapperInterceptor mapperInterceptor=new MapperInterceptor();
+        Properties properties=new Properties();
+        properties.put("mappers", "tk.mybatis.mapper.common.Mapper");
+        properties.put("IDENTITY","MYSQL");
+        properties.put("notEmpty",true);
+        mapperInterceptor.setProperties(properties);
+        return  mapperInterceptor;
     }
 
     @Bean
@@ -62,4 +85,5 @@ public class MybatisConfiguration
         mapperScannerConfigurer.setBasePackage(this.applicationContext.getEnvironment().getProperty("mybatis.config.basePackage"));
         return mapperScannerConfigurer;
     }
+
 }

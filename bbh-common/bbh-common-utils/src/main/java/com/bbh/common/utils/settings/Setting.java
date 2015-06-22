@@ -78,7 +78,7 @@ public class Setting implements Serializable {
 		memberRegister,
 
 		/** 后台登录 */
-		accountLogin,
+		adminLogin,
 
 		/** 商品评论 */
 		review,
@@ -105,7 +105,7 @@ public class Setting implements Serializable {
 		member,
 
 		/** 管理员 */
-		account
+		admin
 	}
 
 	/**

@@ -29,10 +29,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.ImportResource;
 
 import java.util.Arrays;
-
+import  net.sf.ehcache.Cache;
 @Configuration
 @ComponentScan(basePackages = "com.bbh")
-@EnableAspectJAutoProxy(proxyTargetClass = true)
+@EnableAutoConfiguration
 @ImportResource({"classpath:dubbo.xml"})
 public class ApplicationManage extends SpringBootServletInitializer {
 
@@ -42,19 +42,15 @@ public class ApplicationManage extends SpringBootServletInitializer {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ApplicationManage.class, args);
-/*
+         /*
 		ApplicationContext ctx = SpringApplication.run(ApplicationManage.class, args);
-
 		System.out.println("Let's inspect the beans provided by Spring Boot:");
-
 		String[] beanNames = ctx.getBeanDefinitionNames();
 		Arrays.sort(beanNames);
 		for (String beanName : beanNames) {
 			System.out.println(beanName+"##################################");
 
 		}*/
-
-
 	}
 
 

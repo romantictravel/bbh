@@ -92,9 +92,9 @@
 	<setting name="cnzzPassword" value="" />
 	
 	<logConfig operation="系统设置" urlPattern="/manage/setting/update.do" />
-	<logConfig operation="添加管理员" urlPattern="/manage/manage/save.do" />
-	<logConfig operation="编辑管理员" urlPattern="/manage/manage/update.do" />
-	<logConfig operation="删除管理员" urlPattern="/manage/manage/delete.do" />
+	<logConfig operation="添加管理员" urlPattern="/manage/admin/save.do" />
+	<logConfig operation="编辑管理员" urlPattern="/manage/admin/update.do" />
+	<logConfig operation="删除管理员" urlPattern="/manage/admin/delete.do" />
 	
 	<template id="shopCommonJs" type="page" name="shop_common_js" templatePath="/shop/js/common.ftl" staticPath="/resources/shop/js/common.js" />
 	<template id="manageCommonJs" type="page" name="manage_common_js" templatePath="/manage/js/common.ftl" staticPath="/resources/manage/js/common.js" />

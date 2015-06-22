@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 @Component
 public class CaptchaServiceImpl implements CaptchaService {
 
-	@Resource(name = "imageCaptchaService")
+	@Autowired(required = false)
 	private com.octo.captcha.service.CaptchaService imageCaptchaService;
 
 	public BufferedImage buildImage(String captchaId) {

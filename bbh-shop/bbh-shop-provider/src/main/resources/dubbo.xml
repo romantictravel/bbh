@@ -10,6 +10,6 @@
     <dubbo:protocol name="dubbo"  port="-1" />
 
 
-    <dubbo:service interface="com.bbh.shop.api.service.ManageService" ref="manageServiceImpl"/>
+    <dubbo:service interface="com.bbh.shop.api.service.AdminService" ref="adminServiceImpl"/>
 
 </beans>

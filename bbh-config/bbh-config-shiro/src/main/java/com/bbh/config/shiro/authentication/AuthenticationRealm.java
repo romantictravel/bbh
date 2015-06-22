@@ -48,7 +48,7 @@ public class AuthenticationRealm extends AuthorizingRealm {
         String captcha = authenticationToken.getCaptcha();
         String ip = authenticationToken.getHost();
         Setting setting= SettingUtils.get();
-        if (!captchaService.isValid(CaptchaType.accountLogin, captchaId, captcha)) {
+        if (!captchaService.isValid(CaptchaType.adminLogin, captchaId, captcha)) {
             throw new UnsupportedTokenException();
         }
         if (username != null && password != null) {
@@ -60,7 +60,7 @@ public class AuthenticationRealm extends AuthorizingRealm {
                 throw new DisabledAccountException();
             }
             if (account.getIsLocked()) {
-                if (ArrayUtils.contains(setting.getAccountLockTypes(), Setting.AccountLockType.account)) {
+                if (ArrayUtils.contains(setting.getAccountLockTypes(), Setting.AccountLockType.admin)) {
                     int loginFailureLockTime = setting.getAccountLockTime();
                     if (loginFailureLockTime == 0) {
                         throw new LockedAccountException();

@@ -24,5 +24,16 @@
             <artifactId>bbh-common-utils</artifactId>
             <version>1.0</version>
         </dependency>
+        <!--freemark-->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>

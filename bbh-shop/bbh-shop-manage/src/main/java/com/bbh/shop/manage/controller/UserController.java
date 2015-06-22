@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller("/user")
 public class UserController {
 
-    //@Autowired
+    @Autowired
     private CaptchaService captchaService;
     @RequestMapping("/list")
     public void  list(){
