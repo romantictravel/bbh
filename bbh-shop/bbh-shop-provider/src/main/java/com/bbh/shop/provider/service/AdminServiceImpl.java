@@ -12,9 +12,8 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminService{
-   @Autowired
-   private Mapper<Admin>  mapper;
+public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminService<Admin>{
+
     @Transactional(readOnly = true)
     public boolean usernameExists(String username) {
         Example example = new Example(Admin.class);

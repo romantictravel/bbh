@@ -6,12 +6,12 @@
 package com.bbh.shop.manage.controller;
 
 import com.bbh.shop.api.entity.Admin;
-import com.bbh.shop.api.entity.Role;
 import com.bbh.shop.api.service.AdminService;
 import com.bbh.shop.api.service.RoleService;
 import com.bbh.shop.manage.common.Message;
 import com.bbh.shop.manage.common.Pageable;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,21 +19,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-
 /**
  * Controller - 管理员
  * 
  * @author KCSHOP Team
  * @version 3.0
  */
-@Controller("adminController")
+@Controller
 @RequestMapping("/manage/admin")
 public class AdminController extends BaseController {
-
-	@Resource(name = "adminServiceImpl")
+	@Autowired
 	private AdminService adminService;
-	@Resource(name = "roleServiceImpl")
+	@Autowired
 	private RoleService roleService;
 
 	/**
@@ -145,7 +142,8 @@ public class AdminController extends BaseController {
 			return Message.error("manage.common.deleteAllNotAllowed");
 		}
 		adminService.delete(ids);*/
-		return SUCCESS_MESSAGE;
+		//return SUCCESS_MESSAGE;
+		return null;
 	}
 
 }

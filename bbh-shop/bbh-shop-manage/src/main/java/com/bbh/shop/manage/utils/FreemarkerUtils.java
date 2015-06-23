@@ -1,7 +1,7 @@
 package com.bbh.shop.manage.utils;
 import com.bbh.common.constant.CommonAttributes;
 import com.bbh.common.utils.EnumConverter;
-import com.bbh.common.utils.spring.SpringUtils;
+import com.bbh.common.utils.spring.SpringContextUtils;
 import freemarker.core.Environment;
 import freemarker.template.*;
 import freemarker.template.utility.DeepUnwrap;
@@ -109,9 +109,9 @@ public final class FreemarkerUtils {
 	 */
 	public static String process(String template, Map<String, ?> model) throws IOException, TemplateException {
 		Configuration configuration = null;
-		ApplicationContext applicationContext = SpringUtils.getApplicationContext();
+		ApplicationContext applicationContext = SpringContextUtils.getApplicationContext();
 		if (applicationContext != null) {
-			FreeMarkerConfigurer freeMarkerConfigurer = SpringUtils.getBean("freeMarkerConfigurer", FreeMarkerConfigurer.class);
+			FreeMarkerConfigurer freeMarkerConfigurer = SpringContextUtils.getBean("freeMarkerConfigurer", FreeMarkerConfigurer.class);
 			if (freeMarkerConfigurer != null) {
 				configuration = freeMarkerConfigurer.getConfiguration();
 			}

@@ -6,7 +6,7 @@
 package com.bbh.shop.manage.common;
 
 
-import com.bbh.common.utils.spring.SpringUtils;
+import com.bbh.common.utils.spring.SpringContextUtils;
 
 /**
  * 消息
@@ -72,7 +72,7 @@ public class Message {
      */
     public Message(Type type, String content, Object... args) {
         this.type = type;
-        this.content = SpringUtils.getMessage(content, args);
+        this.content = SpringContextUtils.getMessage(content, args);
     }
 
     /**
@@ -146,7 +146,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return SpringUtils.getMessage(content);
+        return SpringContextUtils.getMessage(content);
     }
 
 }

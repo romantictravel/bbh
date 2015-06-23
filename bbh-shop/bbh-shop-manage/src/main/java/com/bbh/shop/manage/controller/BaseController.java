@@ -6,7 +6,6 @@
 package com.bbh.shop.manage.controller;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -16,10 +15,11 @@ import javax.validation.Validator;
 
 import com.bbh.common.utils.settings.Setting;
 import com.bbh.common.utils.settings.SettingUtils;
-import com.bbh.common.utils.spring.SpringUtils;
+import com.bbh.common.utils.spring.SpringContextUtils;
 import com.bbh.shop.manage.common.Message;
 import com.bbh.shop.manage.template.directive.FlashMessageDirective;
-import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.request.RequestAttributes;
@@ -32,23 +32,23 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author KCSHOP Team
  * @version 3.0
  */
+@Component
+@DependsOn({"springUtils"})
 public class BaseController {
 
     /**
      * 错误视图
      */
+
     protected static final String ERROR_VIEW = "/manage/common/error";
 
-    /**
-     * 错误消息
-     */
-    protected static final Message ERROR_MESSAGE = Message.error("manage.message.error");
+   /* *
+     * 错误消息*/
 
-    /**
-     * 成功消息
-     */
-    protected static final Message SUCCESS_MESSAGE = Message.success("manage.message.success");
+    protected static final Message ERROR_MESSAGE =Message.error("manage.message.error");
 
+
+    protected static final Message SUCCESS_MESSAGE =Message.success("manage.message.success");
     /**
      * "验证结果"参数名称
      */
@@ -134,7 +134,7 @@ public class BaseController {
      * @return 国际化消息
      */
     protected String message(String code, Object... args) {
-        return SpringUtils.getMessage(code, args);
+        return SpringContextUtils.getMessage(code, args);
     }
 
     /**
@@ -157,8 +157,12 @@ public class BaseController {
     protected void addLog(String content) {
         if (content != null) {
             RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-           // requestAttributes.setAttribute(Log.LOG_CONTENT_ATTRIBUTE_NAME, content, RequestAttributes.SCOPE_REQUEST);
+            // requestAttributes.setAttribute(Log.LOG_CONTENT_ATTRIBUTE_NAME, content, RequestAttributes.SCOPE_REQUEST);
         }
     }
+
+
+
+
 
 }

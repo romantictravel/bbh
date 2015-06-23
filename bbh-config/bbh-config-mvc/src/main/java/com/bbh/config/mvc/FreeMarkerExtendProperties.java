@@ -2,6 +2,7 @@ package com.bbh.config.mvc;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Map;
  */
 @ConfigurationProperties(prefix = "spring.freemarker")
 public class FreeMarkerExtendProperties {
-    private Map<String,Object> variables;
+    private Map<String,Object> variables=new HashMap<String, Object>();
 
     public Map<String, Object> getVariables() {
         return variables;

@@ -7,7 +7,7 @@
 <%@page import="org.springframework.context.ApplicationContext"%>
 <%@page import="com.bbh.common.utils.settings.Setting"%>
 <%@page import="com.bbh.common.utils.settings.SettingUtils"%>
-<%@page import="com.bbh.common.utils.spring.SpringUtils"%>
+<%@page import="com.bbh.common.utils.spring.SpringContextUtils"%>
 <%@page import="com.bbh.common.utils.settings.Setting.CaptchaType"%>
 <%@page import="com.bbh.common.utils.settings.Setting.AccountLockType"%>
 <%@page import="com.bbh.common.utils.rsa.RSAService"%>
@@ -15,7 +15,7 @@
 <%
 String base = request.getContextPath();
 String captchaId = UUID.randomUUID().toString();
-ApplicationContext applicationContext = SpringUtils.getApplicationContext();
+ApplicationContext applicationContext = SpringContextUtils.getApplicationContext();
 Setting setting = SettingUtils.get();
 if (applicationContext != null) {
 %>
@@ -33,7 +33,7 @@ response.sendRedirect(base + "/manage/common/main.do");
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <%
 if (applicationContext != null) {
-	RSAService rsaService = SpringUtils.getBean("rsaServiceImpl", RSAService.class);
+	RSAService rsaService = SpringContextUtils.getBean("rsaServiceImpl", RSAService.class);
 	RSAPublicKey publicKey = rsaService.generateKey(request);
 	String modulus = Base64.encodeBase64String(publicKey.getModulus().toByteArray());
 	String exponent = Base64.encodeBase64String(publicKey.getPublicExponent().toByteArray());
@@ -60,7 +60,7 @@ if (applicationContext != null) {
 		}
 	}
 %>
-<title><%=SpringUtils.getMessage("manage.login.title")%></title>
+<title><%=SpringContextUtils.getMessage("manage.login.title")%></title>
 <meta http-equiv="expires" content="0" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache" />
@@ -104,15 +104,15 @@ if (applicationContext != null) {
 		// 表单验证、记住用户名
 		$loginForm.submit( function() {
 			if ($username.val() == "") {
-				$.message("warn", "<%=SpringUtils.getMessage("manage.login.usernameRequired")%>");
+				$.message("warn", "<%=SpringContextUtils.getMessage("manage.login.usernameRequired")%>");
 				return false;
 			}
 			if ($password.val() == "") {
-				$.message("warn", "<%=SpringUtils.getMessage("manage.login.passwordRequired")%>");
+				$.message("warn", "<%=SpringContextUtils.getMessage("manage.login.passwordRequired")%>");
 				return false;
 			}
 			if ($captcha.val() == "") {
-				$.message("warn", "<%=SpringUtils.getMessage("manage.login.captchaRequired")%>");
+				$.message("warn", "<%=SpringContextUtils.getMessage("manage.login.captchaRequired")%>");
 				return false;
 			}
 			
@@ -129,7 +129,7 @@ if (applicationContext != null) {
 		});
 		
 		<%if (message != null) {%>
-			$.message("error", "<%=SpringUtils.getMessage(message, setting.getAccountLockCount())%>");
+			$.message("error", "<%=SpringContextUtils.getMessage(message, setting.getAccountLockCount())%>");
 		<%}%>
 	});
 </script>
@@ -158,7 +158,7 @@ if (applicationContext != null) {
 							<img src="<%=base%>/resources/manage/images/login_logo.gif" alt="KCSHOP" />
 						</td>
 						<th>
-							<%=SpringUtils.getMessage("manage.login.username")%>:
+							<%=SpringContextUtils.getMessage("manage.login.username")%>:
 						</th>
 						<td>
 							<input type="text" id="username" name="username" class="text" maxlength="20" />
@@ -166,7 +166,7 @@ if (applicationContext != null) {
 					</tr>
 					<tr>
 						<th>
-							<%=SpringUtils.getMessage("manage.login.password")%>:
+							<%=SpringContextUtils.getMessage("manage.login.password")%>:
 						</th>
 						<td>
 							<input type="password" id="password" class="text" maxlength="20" autocomplete="off" />
@@ -178,10 +178,10 @@ if (applicationContext != null) {
 								&nbsp;
 							</td>
 							<th>
-								<%=SpringUtils.getMessage("manage.captcha.name")%>:
+								<%=SpringContextUtils.getMessage("manage.captcha.name")%>:
 							</th>
 							<td>
-								<input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off" /><img id="captchaImage" class="captchaImage" src="<%=base%>/manage/common/captcha.do?captchaId=<%=captchaId%>" title="<%=SpringUtils.getMessage("manage.captcha.imageTitle")%>" />
+								<input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off" /><img id="captchaImage" class="captchaImage" src="<%=base%>/manage/common/captcha.do?captchaId=<%=captchaId%>" title="<%=SpringContextUtils.getMessage("manage.captcha.imageTitle")%>" />
 							</td>
 						</tr>
 					<%}%>
@@ -195,7 +195,7 @@ if (applicationContext != null) {
 						<td>
 							<label>
 								<input type="checkbox" id="isRememberUsername" value="true" />
-								<%=SpringUtils.getMessage("manage.login.rememberUsername")%>:
+								<%=SpringContextUtils.getMessage("manage.login.rememberUsername")%>:
 							</label>
 						</td>
 					</tr>
@@ -207,18 +207,18 @@ if (applicationContext != null) {
 							&nbsp;
 						</th>
 						<td>
-							<input type="button" class="homeButton" value="" onclick="location.href='<%=base%>/'" /><input type="submit" class="loginButton" value="<%=SpringUtils.getMessage("manage.login.login")%>" />
+							<input type="button" class="homeButton" value="" onclick="location.href='<%=base%>/'" /><input type="submit" class="loginButton" value="<%=SpringContextUtils.getMessage("manage.login.login")%>" />
 						</td>
 					</tr>
 				</table>
 				<div class="powered">COPYRIGHT © 2005-2013 KCSHOP.NET ALL RIGHTS RESERVED.</div>
 				<div class="link">
-					<a href="<%=base%>/"><%=SpringUtils.getMessage("manage.login.home")%></a> |
-					<a href="http://www.kcshop.net"><%=SpringUtils.getMessage("manage.login.official")%></a> |
-					<a href="http://bbs.kcshop.net"><%=SpringUtils.getMessage("manage.login.bbs")%></a> |
-					<a href="http://www.kcshop.net/about.html"><%=SpringUtils.getMessage("manage.login.about")%></a> |
-					<a href="http://www.kcshop.net/contact.html"><%=SpringUtils.getMessage("manage.login.contact")%></a> |
-					<a href="http://www.kcshop.net/license.html"><%=SpringUtils.getMessage("manage.login.license")%></a>
+					<a href="<%=base%>/"><%=SpringContextUtils.getMessage("manage.login.home")%></a> |
+					<a href="http://www.kcshop.net"><%=SpringContextUtils.getMessage("manage.login.official")%></a> |
+					<a href="http://bbs.kcshop.net"><%=SpringContextUtils.getMessage("manage.login.bbs")%></a> |
+					<a href="http://www.kcshop.net/about.html"><%=SpringContextUtils.getMessage("manage.login.about")%></a> |
+					<a href="http://www.kcshop.net/contact.html"><%=SpringContextUtils.getMessage("manage.login.contact")%></a> |
+					<a href="http://www.kcshop.net/license.html"><%=SpringContextUtils.getMessage("manage.login.license")%></a>
 				</div>
 			</form>
 		</div>

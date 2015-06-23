@@ -49,10 +49,6 @@ public class MybatisConfiguration
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource[] resources=resolver.getResources("classpath:"+this.applicationContext.getEnvironment().getProperty("mybatis.config.mapperLocations"));
         sqlSessionFactoryBean.setMapperLocations(resources);
-        //plugins
-       /* Properties properties = new Properties();
-        properties.setProperty("sqlType", this.applicationContext.getEnvironment().getProperty("mybatis.config.sqlType"));
-        sqlSessionFactoryBean.setConfigurationProperties(properties);*/
 
         sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper,mapperInterceptor});
         return sqlSessionFactoryBean;

@@ -39,7 +39,7 @@ import java.util.List;
 @Service
 public  class BaseServiceImpl<T> implements BaseService<T> {
 
-    @Autowired
+   // @Autowired
     protected Mapper<T> mapper;
 
     public int save(T entity){
