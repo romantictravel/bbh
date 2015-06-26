@@ -1,7 +1,5 @@
 package com.bbh.shop.api.service;
 
-import java.io.Serializable;
-
 /**
  * Created by roman_000 on 2015/6/21.
  */

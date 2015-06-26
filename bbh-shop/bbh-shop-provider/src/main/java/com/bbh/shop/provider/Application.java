@@ -13,13 +13,18 @@
  * limitations under the License.*/
 
 package com.bbh.shop.provider;
+import com.bbh.common.utils.spring.SpringContextUtils;
+import com.bbh.shop.api.entity.Admin;
+import com.bbh.shop.provider.repository.AdminMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import tk.mybatis.mapper.common.Mapper;
 
 @Configuration
 @EnableAutoConfiguration(exclude = {JacksonAutoConfiguration.class})
@@ -28,6 +33,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement(proxyTargetClass=true)
 public class Application {
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(Application.class, args);
+		ApplicationContext application=SpringApplication.run(Application.class, args);
+		//打印bing
+		AdminMapper mapper=application.getBean(AdminMapper.class);
+		System.out.println(mapper.toString()+"################");
+		String[] names=application.getBeanDefinitionNames();
+		for(String s:names){
+			System.out.println(s);
+		}
+
+
 	}
 }

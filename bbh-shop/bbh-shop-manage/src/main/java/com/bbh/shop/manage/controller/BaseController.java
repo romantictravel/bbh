@@ -33,7 +33,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @version 3.0
  */
 @Component
-@DependsOn({"springUtils"})
+@DependsOn({"springContextUtils"})
 public class BaseController {
 
     /**

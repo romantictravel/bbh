@@ -24,22 +24,18 @@
 
 package com.bbh.shop.provider.service;
 
-import com.bbh.shop.api.entity.Admin;
 import com.bbh.shop.api.service.BaseService;
-import tk.mybatis.mapper.common.Mapper;
-import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
- * Created by tancheng 2014/12/11.
+ * Created by tc 2014/12/11.
  */
 @Service
 public  class BaseServiceImpl<T> implements BaseService<T> {
 
-   // @Autowired
+    @Autowired
     protected Mapper<T> mapper;
 
     public int save(T entity){

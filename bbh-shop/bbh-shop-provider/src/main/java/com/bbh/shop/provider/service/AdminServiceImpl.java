@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminService<Admin>{
+public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminService{
 
     @Transactional(readOnly = true)
     public boolean usernameExists(String username) {

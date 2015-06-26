@@ -8,7 +8,6 @@ import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import tk.mybatis.mapper.mapperhelper.MapperHelper;
 import tk.mybatis.mapper.mapperhelper.MapperInterceptor;
 
 import javax.sql.DataSource;
@@ -77,7 +75,7 @@ public class MybatisConfiguration
     public MapperScannerConfigurer mapperScannerConfigurer() {
         LOGGER.info("init mapperScannerConfigurer");
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setAnnotationClass(MyBatisRepository.class);
+       // mapperScannerConfigurer.setAnnotationClass(MyBatisRepository.class);
         mapperScannerConfigurer.setBasePackage(this.applicationContext.getEnvironment().getProperty("mybatis.config.basePackage"));
         return mapperScannerConfigurer;
     }
