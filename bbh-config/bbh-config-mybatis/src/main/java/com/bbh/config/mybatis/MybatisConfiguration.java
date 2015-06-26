@@ -75,7 +75,7 @@ public class MybatisConfiguration
     public MapperScannerConfigurer mapperScannerConfigurer() {
         LOGGER.info("init mapperScannerConfigurer");
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-       // mapperScannerConfigurer.setAnnotationClass(MyBatisRepository.class);
+        mapperScannerConfigurer.setAnnotationClass(MyBatisRepository.class);
         mapperScannerConfigurer.setBasePackage(this.applicationContext.getEnvironment().getProperty("mybatis.config.basePackage"));
         return mapperScannerConfigurer;
     }

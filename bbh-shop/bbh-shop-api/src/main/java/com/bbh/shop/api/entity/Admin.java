@@ -1,10 +1,11 @@
 package com.bbh.shop.api.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "tb_admin")
-public class Admin {
+public class Admin implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;

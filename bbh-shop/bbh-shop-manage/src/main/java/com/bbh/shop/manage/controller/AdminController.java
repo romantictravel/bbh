@@ -39,14 +39,15 @@ public class AdminController extends BaseController {
 	@RequestMapping(value = "/check_username", method = RequestMethod.GET)
 	public @ResponseBody
 	boolean checkUsername(String username) {
-		if (StringUtils.isEmpty(username)) {
+		/*if (StringUtils.isEmpty(username)) {
 			return false;
 		}
 		if (adminService.usernameExists(username)) {
 			return false;
 		} else {
 			return true;
-		}
+		}*/
+		return false;
 	}
 
 	/**

@@ -11,15 +11,7 @@ import java.util.List;
  * @Version:1.0.0
  */
 public interface AdminService extends  BaseService<Admin>{
-     boolean usernameExists(String username) ;
-     Admin findByUsername(String username);
-     int update(Admin manage);
-    /**
-     * 查找权限集合
-     * @param id
-     * @return
-     */
-     List<String> findAuthorities(String id);
+
 
 
 }
