@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 /**
  * Created by test on 2015/6/25.
  */
-public class AdminServiceImplTest  extends BaseTest {
+public class AdminServiceImplTest extends BaseTest {
     @Autowired
     @Qualifier("adminServiceImpl")
     private AdminServiceImpl adminService;
+
     @Test
-    public  void  test(){
-        Admin admin=  adminService.findByUsername("aaaa");
+    public void test() {
+        Admin admin = adminService.findByUsername("aaaa");
     }
 
 

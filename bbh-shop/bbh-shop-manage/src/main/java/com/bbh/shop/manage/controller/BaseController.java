@@ -18,6 +18,8 @@ import com.bbh.common.utils.settings.SettingUtils;
 import com.bbh.common.utils.spring.SpringContextUtils;
 import com.bbh.shop.manage.common.Message;
 import com.bbh.shop.manage.template.directive.FlashMessageDirective;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.WebDataBinder;
@@ -35,7 +37,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Component
 @DependsOn({"springContextUtils"})
 public class BaseController {
-
+    protected Logger logger= LoggerFactory.getLogger(this.getClass());
     /**
      * 错误视图
      */
