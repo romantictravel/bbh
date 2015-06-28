@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminService{
+public class AdminServiceImpl extends BaseServiceImpl<Admin> implements AdminService {
 
     @Transactional(readOnly = true)
     public boolean usernameExists(String username) {
@@ -29,9 +29,9 @@ public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminS
         List<Admin> list = mapper.selectByExample(example);
         return null != list && list.size() > 0 ? list.get(0) : null;
     }
-
+    @Override
     @Transactional(readOnly = true)
-    public List<String> findAuthorities(String id) {
+    public List<String> findAuthorities(Long id) {
        /* List<String> authorities = new ArrayList<String>();
         Admin admin = mapper.selectByPrimaryKey(id);
         if (admin != null) {
@@ -42,16 +42,16 @@ public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminS
         return null;
     }
 
-    /*
-     @Transactional(readOnly = true)
-     public boolean isAuthenticated() {
-     Subject subject = SecurityUtils.getSubject();
+
+    @Transactional(readOnly = true)
+    public boolean isAuthenticated() {
+    /* Subject subject = SecurityUtils.getSubject();
      if (subject != null) {
      return subject.isAuthenticated();
-     }
-     return false;
-     }
-
+     }*/
+        return false;
+    }
+    /**
      @Transactional(readOnly = true)
      public Manage getCurrent() {
      Subject subject = SecurityUtils.getSubject();
@@ -75,7 +75,6 @@ public class AdminServiceImpl extends BaseServiceImpl<Admin>  implements  AdminS
      }
      return null;
      }*/
-
 
 
 }

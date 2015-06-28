@@ -1,11 +1,8 @@
-/*
-
-
-
- */
 package com.bbh.common.utils.rsa;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +13,12 @@ import java.security.interfaces.RSAPublicKey;
 
 /**
  * Service - RSA安全
- * 
+ *
  * @author BBH Team
  * @version 1.0
  */
+@Component("rsaServiceImpl")
 public class RSAServiceImpl implements RSAService {
-
 	/** "私钥"参数名称 */
 	private static final String PRIVATE_KEY_ATTRIBUTE_NAME = "privateKey";
 
@@ -34,7 +31,6 @@ public class RSAServiceImpl implements RSAService {
 		session.setAttribute(PRIVATE_KEY_ATTRIBUTE_NAME, privateKey);
 		return publicKey;
 	}
-
 
 	public void removePrivateKey(HttpServletRequest request) {
 		Assert.notNull(request);

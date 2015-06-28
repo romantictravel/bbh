@@ -83,6 +83,7 @@
             <id>test</id>
             <build>
                 <plugins>
+
                     <plugin>
                         <artifactId>maven-assembly-plugin</artifactId>
                         <configuration>

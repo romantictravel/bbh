@@ -5,22 +5,21 @@
  */
 package com.bbh.config.shiro.authentication;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import javax.annotation.Resource;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.bbh.common.utils.rsa.RSAService;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Filter - 权限认证
@@ -48,8 +47,11 @@ public class AuthenticationFilter extends FormAuthenticationFilter {
 	/** "验证码"参数名称 */
 	private String captchaParam = DEFAULT_CAPTCHA_PARAM;
 
-	@Resource(name = "rsaServiceImpl")
 	private RSAService rsaService;
+
+	public void setRsaService(RSAService rsaService) {
+		this.rsaService = rsaService;
+	}
 
 	@Override
 	protected org.apache.shiro.authc.AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse) {

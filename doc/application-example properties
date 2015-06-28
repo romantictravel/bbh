@@ -374,13 +374,13 @@ spring.mobile.devicedelegatingviewresolver.tablet-suffix=
 # ----------------------------------------
 
 # MANAGEMENT HTTP SERVER (ManagementServerProperties)
-management.port= # defaults to 'server.port'
-management.address= # bind to a specific NIC
-management.context-path= # default to '/'
-management.add-application-context-header= # default to true
-management.security.enabled=true # enable security
-management.security.role=ADMIN # role required to access the management endpoint
-management.security.sessions=stateless # session creating policy to use (always, never, if_required, stateless)
+adminment.port= # defaults to 'server.port'
+adminment.address= # bind to a specific NIC
+adminment.context-path= # default to '/'
+adminment.add-application-context-header= # default to true
+adminment.security.enabled=true # enable security
+adminment.security.role=ADMIN # role required to access the adminment endpoint
+adminment.security.sessions=stateless # session creating policy to use (always, never, if_required, stateless)
 
 # PID FILE (ApplicationPidFileWriter)
 spring.pidfile= # Location of the PID file to write
@@ -425,15 +425,15 @@ endpoints.trace.sensitive=true
 endpoints.trace.enabled=true
 
 # HEALTH INDICATORS (previously health.*)
-management.health.db.enabled=true
-management.health.diskspace.enabled=true
-management.health.mongo.enabled=true
-management.health.rabbit.enabled=true
-management.health.redis.enabled=true
-management.health.solr.enabled=true
-management.health.diskspace.path=.
-management.health.diskspace.threshold=10485760
-management.health.status.order=DOWN, OUT_OF_SERVICE, UNKNOWN, UP
+adminment.health.db.enabled=true
+adminment.health.diskspace.enabled=true
+adminment.health.mongo.enabled=true
+adminment.health.rabbit.enabled=true
+adminment.health.redis.enabled=true
+adminment.health.solr.enabled=true
+adminment.health.diskspace.path=.
+adminment.health.diskspace.threshold=10485760
+adminment.health.status.order=DOWN, OUT_OF_SERVICE, UNKNOWN, UP
 
 # MVC ONLY ENDPOINTS
 endpoints.jolokia.path=jolokia

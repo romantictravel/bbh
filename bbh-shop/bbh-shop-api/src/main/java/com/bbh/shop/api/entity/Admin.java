@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Admin implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @Column(name = "create_date")
     private Date createDate;
@@ -47,14 +47,14 @@ public class Admin implements Serializable{
     /**
      * @return id
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

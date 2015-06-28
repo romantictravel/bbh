@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by roman_000 on 2015/6/7.
  */
 public class Account {
-    private String  id;
+    private Long  id;
     /** 用户名 */
     private String username;
     /**微信openId*/
@@ -28,11 +28,11 @@ public class Account {
     /** 最后登录IP */
     private String loginIp;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

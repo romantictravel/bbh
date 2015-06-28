@@ -30,7 +30,6 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 @Configuration
 @ConditionalOnExpression("${shiro.enabled:true}")
 @EnableConfigurationProperties(ShiroProperties.class)
-@EnableAspectJAutoProxy(proxyTargetClass = true)
 @AutoConfigureAfter(CacheAutoConfiguration.class)
 public class ShiroConfiguration {
     @Bean(name = "authenticationRealm")
@@ -58,15 +57,14 @@ public class ShiroConfiguration {
 
 
     @Bean(name = "shiroFilter")
-    public ShiroFilterFactoryBean shiroFilterFactoryBean(ShiroProperties shiroProperties, DefaultWebSecurityManager securityManager) throws ClassNotFoundException {
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(ShiroProperties shiroProperties, DefaultWebSecurityManager securityManager,AuthenticationFilter authenticationFilter) throws ClassNotFoundException {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager);
         factoryBean.setLoginUrl(shiroProperties.getLoginUrl());
         factoryBean.setSuccessUrl(shiroProperties.getSuccessUrl());
         factoryBean.setUnauthorizedUrl(shiroProperties.getUnauthorizedUrl());
         factoryBean.setFilterChainDefinitionMap(getFilterChainDefinitions(shiroProperties));
-        AuthenticationFilter authc = new AuthenticationFilter();
-        factoryBean.getFilters().put("authc", authc);
+        factoryBean.getFilters().put("authc", authenticationFilter);
         return factoryBean;
     }
 
@@ -83,6 +81,12 @@ public class ShiroConfiguration {
         return advisor;
     }
 
+    @Bean
+    public  AuthenticationFilter   authenticationFilter(RSAService  rsaServiceImpl){
+        AuthenticationFilter  authenticationFilter=new AuthenticationFilter();
+        authenticationFilter.setRsaService(rsaServiceImpl);
+        return authenticationFilter;
+    }
 
     @Bean
     public MethodInvokingFactoryBean staticSecurityManager(org.apache.shiro.mgt.SecurityManager securityManager) {
@@ -124,11 +128,6 @@ public class ShiroConfiguration {
         return EhCacheManagerUtils.buildCacheManager();
     }
 
-    @Bean(name = "rsaServiceImpl")
-    @ConditionalOnMissingBean
-    public RSAService rsaServiceImpl() {
-        return new RSAServiceImpl();
-    }
 
     @Bean(name = "imageCaptchaService")
     @ConditionalOnMissingBean

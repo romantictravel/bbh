@@ -34,23 +34,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author KCSHOP Team
  * @version 3.0
  */
-@Component
-@DependsOn({"springContextUtils"})
 public class BaseController {
     protected Logger logger= LoggerFactory.getLogger(this.getClass());
     /**
      * 错误视图
      */
-
-    protected static final String ERROR_VIEW = "/manage/common/error";
+    protected static final String ERROR_VIEW = "/admin/common/error";
 
    /* *
      * 错误消息*/
 
-    protected static final Message ERROR_MESSAGE =Message.error("manage.message.error");
+    protected static final Message ERROR_MESSAGE = null;//Message.error("admin.message.error");
 
 
-    protected static final Message SUCCESS_MESSAGE =Message.success("manage.message.success");
+    protected static final Message SUCCESS_MESSAGE = null;//Message.success("admin.message.success");
     /**
      * "验证结果"参数名称
      */

@@ -14,7 +14,7 @@ public class Principal implements Serializable {
     /**
      * ID
      */
-    private String id;
+    private Long id;
     /**
      * 微信openId
      */
@@ -33,12 +33,12 @@ public class Principal implements Serializable {
      * @param id       ID
      * @param username 用户名
      */
-    public Principal(String id, String username) {
+    public Principal(Long id, String username) {
         this.id = id;
         this.username = username;
     }
 
-    public Principal(String id, String username,String openId,String unionId) {
+    public Principal(Long id, String username,String openId,String unionId) {
         this.id = id;
         this.username = username;
         this.openId=openId;
@@ -50,7 +50,7 @@ public class Principal implements Serializable {
      *
      * @return ID
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -59,7 +59,7 @@ public class Principal implements Serializable {
      *
      * @param id ID
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

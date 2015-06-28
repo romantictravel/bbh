@@ -16,7 +16,7 @@ java -Xms64m -Xmx1024m -XX:MaxPermSize=64M -Xdebug -Xnoagent -Djava.compiler=NON
 goto end
 
 :jmx
-java -Xms64m -Xmx1024m -XX:MaxPermSize=64M -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -classpath ..\conf;%LIB_JARS% com.alibaba.dubbo.container.Main
+java -Xms64m -Xmx1024m -XX:MaxPermSize=64M -Dcom.sun.adminment.jmxremote.port=1099 -Dcom.sun.adminment.jmxremote.ssl=false -Dcom.sun.adminment.jmxremote.authenticate=false -classpath ..\conf;%LIB_JARS% com.alibaba.dubbo.container.Main
 
 :end
 pause

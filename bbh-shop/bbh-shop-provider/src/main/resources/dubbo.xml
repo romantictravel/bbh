@@ -9,7 +9,6 @@
     <dubbo:registry protocol="zookeeper"  address="${zookeeper.url}"/>
     <dubbo:protocol name="dubbo"  port="-1" />
 
-
-    <!--<dubbo:service interface="com.bbh.shop.api.service.AdminService" ref="adminServiceImpl"/>-->
+    <dubbo:service interface="com.bbh.shop.api.service.AdminService" ref="adminServiceImpl"/>
 
 </beans>

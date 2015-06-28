@@ -50,7 +50,7 @@ if [ "$1" = "debug" ]; then
 fi
 JAVA_JMX_OPTS=""
 if [ "$1" = "jmx" ]; then
-    JAVA_JMX_OPTS=" -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false "
+    JAVA_JMX_OPTS=" -Dcom.sun.adminment.jmxremote.port=1099 -Dcom.sun.adminment.jmxremote.ssl=false -Dcom.sun.adminment.jmxremote.authenticate=false "
 fi
 JAVA_MEM_OPTS=""
 BITS=`java -version 2>&1 | grep -i 64-bit`

@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @version 3.0
  */
 @Controller
-@RequestMapping("/manage/admin")
+@RequestMapping("/admin/admin")
 public class AdminController extends BaseController {
 	@Autowired
 	private AdminService adminService;
@@ -56,7 +56,7 @@ public class AdminController extends BaseController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String add(ModelMap model) {
 		model.addAttribute("roles", roleService.findAll());
-		return "/manage/admin/add";
+		return "/admin/admin/add";
 	}
 
 	/**
@@ -89,8 +89,8 @@ public class AdminController extends BaseController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String edit(String id, ModelMap model) {
 		model.addAttribute("roles", roleService.findAll());
-		//model.addAttribute("manage", adminService.find(id));
-		return "/manage/admin/edit";
+		//model.addAttribute("admin", adminService.find(id));
+		return "/admin/admin/edit";
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class AdminController extends BaseController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Pageable pageable, ModelMap model) {
 		//model.addAttribute("page", adminService.findPage(pageable));
-		return "/manage/admin/list";
+		return "/admin/admin/list";
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class AdminController extends BaseController {
 	public @ResponseBody
 	Message delete(String[] ids) {
 		/*if (ids.length >= adminService.count()) {
-			return Message.error("manage.common.deleteAllNotAllowed");
+			return Message.error("admin.common.deleteAllNotAllowed");
 		}
 		adminService.delete(ids);*/
 		//return SUCCESS_MESSAGE;

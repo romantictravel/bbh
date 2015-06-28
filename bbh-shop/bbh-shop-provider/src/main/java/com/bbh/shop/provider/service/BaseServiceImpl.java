@@ -9,7 +9,7 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * Created by tc 2014/12/11.
  */
-public  class BaseServiceImpl<T> implements BaseService<T> {
+public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     protected Logger logger= LoggerFactory.getLogger(this.getClass());
 

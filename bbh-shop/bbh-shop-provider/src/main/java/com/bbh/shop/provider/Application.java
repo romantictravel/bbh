@@ -29,7 +29,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAutoConfiguration(exclude = {JacksonAutoConfiguration.class})
 @ComponentScan(basePackages = "com.bbh")
 @ImportResource({"classpath:dubbo.xml"})
-@EnableTransactionManagement(proxyTargetClass = true)
 public class Application {
 
     private static Logger logger = LoggerFactory.getLogger(Application.class);
